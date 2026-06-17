@@ -1,5 +1,9 @@
 FROM debian:bookworm-slim
 ARG KAMAILIO_VERSION=5.6.3-2
+LABEL org.opencontainers.image.source="https://github.com/kubevoip/kubevoip-kamailio" \
+      org.opencontainers.image.title="KubeVoIP Kamailio" \
+      org.opencontainers.image.description="Kamailio runtime image for KubeVoIP" \
+      org.opencontainers.image.licenses="MIT"
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates kamailio="${KAMAILIO_VERSION}" kamailio-extra-modules="${KAMAILIO_VERSION}" \
     kamailio-postgres-modules="${KAMAILIO_VERSION}" procps python3-minimal tini \
