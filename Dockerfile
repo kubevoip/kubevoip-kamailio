@@ -6,7 +6,8 @@ LABEL org.opencontainers.image.source="https://github.com/kubevoip/kubevoip-kama
       org.opencontainers.image.licenses="MIT"
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates kamailio="${KAMAILIO_VERSION}" kamailio-extra-modules="${KAMAILIO_VERSION}" \
-    kamailio-postgres-modules="${KAMAILIO_VERSION}" procps python3-minimal tini \
+    kamailio-postgres-modules="${KAMAILIO_VERSION}" kamailio-presence-modules="${KAMAILIO_VERSION}" \
+    procps python3-minimal tini \
  && rm -rf /var/lib/apt/lists/*
 COPY entrypoint.sh /usr/local/bin/kubevoip-kamailio
 RUN chmod 0755 /usr/local/bin/kubevoip-kamailio \
